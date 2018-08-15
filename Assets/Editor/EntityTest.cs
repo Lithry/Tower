@@ -14,12 +14,16 @@ public class EntityTest
 
 		[Test]
 		public void _1_Can_Not_Recive_0_Health(){
-			Assert.Throws<System.ArgumentOutOfRangeException>(() => target.SetHealthAndMaxHealth(0));
+			target.SetHealthAndMaxHealth(0);
+
+			Assert.AreEqual(1, target.health);
 		}
 		
 		[Test]
 		public void _2_Can_Not_Recive_Negative_Health(){
-			Assert.Throws<System.ArgumentOutOfRangeException>(() => target.SetHealthAndMaxHealth(-1));
+			target.SetHealthAndMaxHealth(-1);
+
+			Assert.AreEqual(1, target.health);
 		}
 
 		[Test]
@@ -43,7 +47,9 @@ public class EntityTest
         public void _1_Can_Not_Recive_Null_Damage()
         {
             target.SetHealthAndMaxHealth(1);
-			Assert.Throws<System.ArgumentOutOfRangeException>(() => target.ReciveDamage(0));
+            target.ReciveDamage(0);
+
+            Assert.AreEqual(1, target.health);
         }
 
 		[Test]
@@ -68,7 +74,9 @@ public class EntityTest
         public void _4_Can_Not_Recive_Negative_Damage()
         {
             target.SetHealthAndMaxHealth(1);
-			Assert.Throws<System.ArgumentOutOfRangeException>(() => target.ReciveDamage(-1));
+            target.ReciveDamage(-1);
+
+            Assert.AreEqual(1, target.health);
         }
     }
 
@@ -85,7 +93,9 @@ public class EntityTest
         public void _1_Can_Not_Recive_Null_Heal()
         {
             target.SetHealthAndMaxHealth(1);
-			Assert.Throws<System.ArgumentOutOfRangeException>(() => target.Heal(0));
+            target.ReciveDamage(0);
+
+            Assert.AreEqual(1, target.health);
         }
 
 		[Test]
@@ -110,7 +120,9 @@ public class EntityTest
         public void _4_Can_Not_Recive_Negative_Heal()
         {
             target.SetHealthAndMaxHealth(1);
-			Assert.Throws<System.ArgumentOutOfRangeException>(() => target.Heal(-1));
+            target.Heal(-1);
+
+            Assert.AreEqual(1, target.health);
         }
     }
 }

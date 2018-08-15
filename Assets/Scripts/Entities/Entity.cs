@@ -7,19 +7,19 @@ public class Entity : MonoBehaviour {
 	public int maxHealth { get; private set; }
 
     public void SetHealthAndMaxHealth(int initHealth, int max = 1){
-		if (initHealth <= 0) throw new System.ArgumentOutOfRangeException("Entity -> SetHealthAndMaxHealth initHealth must be >= 1");
+		if (initHealth < 1) initHealth = 1;
 		health = initHealth;
 		if (health > max) max = health;
 		maxHealth = max;
 	}
 
 	public void ReciveDamage(int amount){
-		if (amount <= 0) throw new System.ArgumentOutOfRangeException("Entity -> ReciveDamage amount must be > 0");
+		if (amount <= 0) return;
 		health = (health > amount) ? health - amount : 0;
 	}
 
 	public void Heal(int amount){
-		if (amount <= 0) throw new System.ArgumentOutOfRangeException("Entity -> Heal amount must be > 0");
+		if (amount <= 0) return;
 		health = (health + amount < maxHealth) ? health + amount : maxHealth;
 	}
 }
