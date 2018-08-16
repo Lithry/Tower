@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EntityFactory : MonoBehaviour {
 	static public EntityFactory instance;
-    public GameObject entityPrefab;
+    [SerializeField] private Object entityPrefab;
 
     void Awake() {
         if (instance == null)
@@ -19,7 +19,7 @@ public class EntityFactory : MonoBehaviour {
         switch (type) {
             case TypeOfEntity.Empty:
             case TypeOfEntity.Player:
-                return Instantiate(entityPrefab, Vector3.zero, new Quaternion(0, 0, 0, 1));
+                return Instantiate((GameObject)entityPrefab, Vector3.zero, new Quaternion(0, 0, 0, 1));
             default:
                 return null;
         }
@@ -27,5 +27,9 @@ public class EntityFactory : MonoBehaviour {
 
     public void Recycle(GameObject obj) {
         Destroy(obj);
+    }
+
+    public void SetPrefab(Object prefab){
+        entityPrefab = prefab;
     }
 }

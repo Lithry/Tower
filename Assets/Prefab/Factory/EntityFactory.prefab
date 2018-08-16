@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114266988590233590}
   m_Layer: 0
   m_Name: EntityFactory
-  m_TagString: Untagged
+  m_TagString: EntityFactory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

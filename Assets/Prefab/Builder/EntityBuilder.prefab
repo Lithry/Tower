@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114766847471738834}
   m_Layer: 0
   m_Name: EntityBuilder
-  m_TagString: Untagged
+  m_TagString: EntityBuilder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,5 +51,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e203c34d6bbabf479f60f84ada10e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityPrefab: {fileID: 1749964525961782, guid: c2f95623c5fb5914d9b22685226eb932,
-    type: 2}
