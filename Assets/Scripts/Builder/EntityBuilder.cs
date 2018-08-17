@@ -22,7 +22,7 @@ public class EntityBuilder : MonoBehaviour {
 	}
 	
 
-	public GameObject Build(TypeOfEntity type)
+	public GameObject Build(TypeOfEntity type, TypeOfWeapon wType = TypeOfWeapon.Fist)
 	{
         entity = EntityFactory.instance.Create(type);
 
@@ -37,7 +37,7 @@ public class EntityBuilder : MonoBehaviour {
 			entity.name = "Player";
 			entity.layer = Layers.Player;
 			Player player = entity.AddComponent<Player>();
-			GameObject weapon = WeaponBuilder.instance.Build(TypeOfWeapon.Fist);
+			GameObject weapon = WeaponBuilder.instance.Build(wType);
 			weapon.transform.parent = entity.transform;
 			player.SetWeaponManager(weapon.GetComponent<WeaponManager>());
 			

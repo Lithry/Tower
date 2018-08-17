@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WeaponFactory : MonoBehaviour {
 	static public WeaponFactory instance;
-    public GameObject weaponPrefab;
 
     void Awake() {
         if (instance == null)
@@ -17,8 +16,10 @@ public class WeaponFactory : MonoBehaviour {
 
     public GameObject Create(TypeOfWeapon type) {
         switch (type) {
+            case TypeOfWeapon.Empty:
+            case TypeOfWeapon._1000sReloadToTest:
             case TypeOfWeapon.Fist:
-                return Instantiate(weaponPrefab);
+                return Instantiate((GameObject)Resources.Load("Weapon/Weapon"));
             default:
                 return null;
         }

@@ -25,7 +25,7 @@ public class MeleeWeapon : Weapon
 	public override bool Attack(){
 		if (base.Attack()){
 			areaOfEffect.enabled = true;
-			Invoke("ChangeEnabledToFalse", reloadTime);
+			Invoke("ChangeEnabledToFalse", reloadTime / 2);
 			return true;
 		}
 		return false;

@@ -20,12 +20,18 @@ public class EntityFactoryTest {
         Assert.AreEqual(1, target.Length);
     }
 
+        [TearDown]
+		public void AfterEveryTest(){
+			GameObject[] ent = GameObject.FindGameObjectsWithTag("EntityFactory");
+            foreach (GameObject factory in ent){
+                Object.Destroy(factory);
+            }
+		}
+
     public class CreateMethod{
         [UnityTest]
         public IEnumerator _1_Entity_Factory_Return_Not_Null_GameObject() {
             EntityFactory entityFactory = new GameObject().AddComponent<EntityFactory>();
-            var prefab = Resources.Load("Entity/Entity");
-			entityFactory.SetPrefab(prefab);
 			entityFactory.Create(TypeOfEntity.Player);
             
 			yield return null;
@@ -33,5 +39,17 @@ public class EntityFactoryTest {
 			GameObject target = GameObject.FindWithTag("Entity");
 			Assert.IsNotNull(target);
         }
+
+        [TearDown]
+		public void AfterEveryTest(){
+			GameObject[] factories = GameObject.FindGameObjectsWithTag("EntityFactory");
+            foreach (GameObject factory in factories){
+                Object.Destroy(factory);
+            }
+            GameObject[] entities = GameObject.FindGameObjectsWithTag("Entity");
+            foreach (GameObject entity in entities){
+                Object.Destroy(entity);
+            }
+		}
     }
 }

@@ -17,4 +17,12 @@ public class EntityBuilderTest {
         GameObject[] target = GameObject.FindGameObjectsWithTag("EntityBuilder");
         Assert.AreEqual(1, target.Length);
     }
+
+    [TearDown]
+	public void AfterEveryTest(){
+		GameObject[] ent = GameObject.FindGameObjectsWithTag("EntityBuilder");
+        foreach (GameObject builder in ent){
+            Object.Destroy(builder);
+        }
+	}
 }
